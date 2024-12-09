@@ -34,9 +34,9 @@ The project is organized into several modules:
 - `src/main.py`: Entry point of the application
   - `main()`: Orchestrates the program execution
 
-### Wrapper Scripts
+### Wrapper Script
 - `spoof`: Unix/Linux shell script wrapper
-- `spoof.bat`: Windows batch script wrapper
+
 
 This modular structure improves code organization, maintainability, and reusability.
 
