@@ -79,23 +79,23 @@ spoof 0x1234abcd input.png output.png
 
 By default, you'll need to run the tool with ./spoof. To make it available globally (run without ./), you have two options:
 
-Option 1: Create a Symbolic Link
+## Option 1: Create a Symbolic Link
 
-# Create a symbolic link to the spoof tool
+### Create a symbolic link to the spoof tool
 ```bash
 sudo ln -s "$(pwd)/spoof" /usr/local/bin/spoof
 ```
-# Make the tool executable
+### Make the tool executable
 ```bash
 sudo chmod +x /usr/local/bin/spoof
 ```
 
-Option 2: Copy the Script
-# Copy the spoof tool to system-wide bin directory
+## Option 2: Copy the Script
+### Copy the spoof tool to system-wide bin directory
 ```bash
 sudo cp spoof /usr/local/bin/
 ```
-# Make the tool executable
+### Make the tool executable
 ```bash
 sudo chmod +x /usr/local/bin/spoof
 ```
