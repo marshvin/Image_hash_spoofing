@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Hash Spoofing Tool is a Python script that modifies PNG images to generate a specific SHA-512 hash prefix. This tool is useful for testing and educational purposes, demonstrating how image metadata can be manipulated to achieve desired hash values.
+The Hash Spoofing Tool is a Python script that modifies PNG images to generate a specific SHA-512 hash prefix. This tool is useful for demonstrating how image metadata can be manipulated to achieve desired hash values.
 
 ## Features
 
