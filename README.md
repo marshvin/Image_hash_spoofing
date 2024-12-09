@@ -71,24 +71,27 @@ The main function that orchestrates the execution of the tool. It handles comman
 
 ## Running the Tool
 
-You can run the tool using the following command on Unix-based systems:
+Invoke the tool on Unix-based systems using the following syntax:
 
-spoof 0x1234abcd input.png output.png 
+```bash
+./spoof 0x1234abcd input.png output.png
+```
 
-### Unix/Linux systems By default, you'll need to run the tool with ./spoof. To make it available globally (run without ./), you can either:
+By default, you'll need to run the tool with ./spoof. To make it available globally (run without ./), you have two options:
+Option 1: Create a Symbolic Link
 
-1. Create a symbolic link:
+# Create a symbolic link to the spoof tool
 sudo ln -s "$(pwd)/spoof" /usr/local/bin/spoof
+
+# Make the tool executable
 sudo chmod +x /usr/local/bin/spoof
 
-
-2. Or copy the script directly:
+Option 2: Copy the Script
+# Copy the spoof tool to system-wide bin directory
 sudo cp spoof /usr/local/bin/
+
+# Make the tool executable
 sudo chmod +x /usr/local/bin/spoof
-
-
-After performing either step, you can run the `spoof` command from any directory.
-
 
 ## Acknowledgments
 
