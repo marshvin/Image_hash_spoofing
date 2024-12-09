@@ -19,6 +19,27 @@ You can install the required library using pip:
 
 pip install Pillow
 
+## Code Structure
+
+The project is organized into several modules:
+
+### Source Files
+- `src/png_modifier.py`: Contains the core PNG modification logic
+  - `modify_png_get_hash()`: Handles PNG chunk manipulation
+  
+- `src/hash_utils.py`: Contains hash-related utilities
+  - `find_matching_hash()`: Main hash matching algorithm
+  - `verify_hash()`: Hash verification functionality
+  
+- `src/main.py`: Entry point of the application
+  - `main()`: Orchestrates the program execution
+
+### Wrapper Scripts
+- `spoof`: Unix/Linux shell script wrapper
+- `spoof.bat`: Windows batch script wrapper
+
+This modular structure improves code organization, maintainability, and reusability.
+
 ## Usage
 
 To use the Hash Spoofing Tool, run the following command in your terminal:
