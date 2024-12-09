@@ -3,6 +3,7 @@ import hashlib
 from PIL import Image
 import io
 import random
+import zlib
 
 def modify_png_get_hash(image_bytes, current_attempt):
     """Modify PNG metadata and return new bytes and hash"""
@@ -21,7 +22,7 @@ def modify_png_get_hash(image_bytes, current_attempt):
     chunk_length = len(chunk_data)
     
     # Calculate CRC for the chunk
-    crc = hashlib.crc32(chunk_type + chunk_data) & 0xFFFFFFFF
+    crc = zlib.crc32(chunk_type + chunk_data) & 0xFFFFFFFF
     
     # Construct the complete chunk
     new_chunk = (
@@ -34,8 +35,8 @@ def modify_png_get_hash(image_bytes, current_attempt):
     # Insert the new chunk before IEND
     new_bytes[iend_index:iend_index] = new_chunk
     
-    # Calculate SHA-256 hash of modified image
-    return bytes(new_bytes), hashlib.sha256(new_bytes).hexdigest()
+    # Calculate SHA-512 hash of modified image
+    return bytes(new_bytes), hashlib.sha512(new_bytes).hexdigest()
 
 def find_matching_hash(image_path, target_prefix, output_path):
     """Find a modified version of the image with desired hash prefix"""
@@ -63,6 +64,13 @@ def find_matching_hash(image_path, target_prefix, output_path):
         if attempt % 1000 == 0:
             print(f"Tried {attempt} combinations...", file=sys.stderr)
 
+def verify_hash(filepath):
+    """Verify the hash of the output file"""
+    with open(filepath, 'rb') as f:
+        file_hash = hashlib.sha512(f.read()).hexdigest()
+    print(f"SHA-512: {file_hash}")
+    return file_hash
+
 def main():
     if len(sys.argv) != 4:
         print("Usage: python hash_spoof.py <target_prefix> <input_image> <output_image>")
@@ -75,7 +83,8 @@ def main():
     try:
         final_hash = find_matching_hash(input_path, target_prefix, output_path)
         print(f"Success! Modified image saved to {output_path}")
-        print(f"SHA-256: {final_hash}")
+        print(f"SHA-512: {final_hash}")
+        verify_hash(output_path)
     except Exception as e:
         print(f"Error: {e}", file=sys.stderr)
         sys.exit(1)
