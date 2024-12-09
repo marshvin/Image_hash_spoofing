@@ -31,8 +31,7 @@ python hash_spoof.py <target_prefix> <input_image> <output_image>
 
 ### Example
 
-python hash_spoof.py 0x1234abcd input.png output.png
-
+spoof 0x1234abcd input.png output.png
 
 ## Functions
 
@@ -72,20 +71,24 @@ The main function that orchestrates the execution of the tool. It handles comman
 
 ## Running the Tool
 
-You can also run the tool using a batch file on Windows or a shell script on Unix-based systems.
+You can run the tool using the following command on Unix-based systems:
 
-### Windows Batch File
+spoof 0x1234abcd input.png output.png 
 
-@echo off
+### Unix/Linux systems By default, you'll need to run the tool with ./spoof. To make it available globally (run without ./), you can either:
 
-#!/bin/
+1. Create a symbolic link:
+sudo ln -s "$(pwd)/spoof" /usr/local/bin/spoof
+sudo chmod +x /usr/local/bin/spoof
 
-python3 "$(dirname "$0")/hash_spoof.py" "$@"
+
+2. Or copy the script directly:
+sudo cp spoof /usr/local/bin/
+sudo chmod +x /usr/local/bin/spoof
 
 
-## License
+After performing either step, you can run the `spoof` command from any directory.
 
-This project is licensed under the MIT License. See the LICENSE file for details.
 
 ## Acknowledgments
 
