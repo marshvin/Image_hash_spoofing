@@ -1,4 +1,4 @@
-# Hash Spoofing Tool
+# Image hash spoofing
 
 ## Overview
 
